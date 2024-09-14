@@ -6,15 +6,17 @@ import Home from "./pages/Home";
 
 function App() {
   return (
-    <BrowserRouter>
-      <ToastContainer></ToastContainer>
+    <div className="App">
+      <BrowserRouter>
+        <ToastContainer></ToastContainer>
 
-      <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/" element={<Login />} />
-      </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

@@ -15,11 +15,11 @@ import * as Yup from "yup";
 import TextfieldWrapper from "../components/Textfield";
 import ButtonWrapper from "../components/Button";
 import axios from "../api/axios";
-import AuthContext from "../context/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import AuthContext from "../context/AuthProvider";
 
-const LOGIN_URL = "/login";
+const LOGIN_URL = "/users";
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -64,8 +64,6 @@ const formValidation = Yup.object().shape({
 const Login = () => {
   const { setAuth } = useContext(AuthContext);
 
-  const [success, setSuccess] = useState(false);
-
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
@@ -75,20 +73,18 @@ const Login = () => {
         JSON.stringify({ email: values.email, password: values.password }),
         {
           headers: { "Content-Type": "application/json" },
-          // withCredentials: true,
+          withCredentials: true,
         }
       );
       console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.token;
       setAuth({ email: values.email, password: values.password, accessToken });
-
-      setSuccess(true);
       navigate("/home");
       toast.success("Login Successful");
     } catch (err) {
+      console.log(err);
       if (!err?.response) {
-        console.log(err);
-        toast.error(err + "No Server Response");
+        toast.error(`${err}`);
       } else if (err.response?.status === 400) {
         toast.error("Missing Email or Password");
       } else if (err.response?.status === 401) {
@@ -123,59 +119,52 @@ const Login = () => {
             validationSchema={formValidation}
             onSubmit={handleSubmit}
           >
-            {({ values }) => (
-              <Form>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    width: "100%",
-                    gap: 3,
-                  }}
-                >
-                  <FormControl>
-                    <FormLabel htmlFor="email" sx={{ marginTop: 0 }}>
-                      Email
-                    </FormLabel>
-                    <TextfieldWrapper
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="john@gmail.com"
-                      // autoComplete="off"
-                      // onChange={(e) => setEmail(e.target.value)}
-                      // value={email}
-                      required
-                    />
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel htmlFor="password" sx={{ marginTop: 0 }}>
-                      Password
-                    </FormLabel>
-                    <TextfieldWrapper
-                      type="password"
-                      id="password"
-                      name="password"
-                      placeholder="••••••"
-                      // onChange={(e) => setPwd(e.target.value)}
-                      // value={pwd}
-                      required
-                    />
-                  </FormControl>
+            <Form>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "100%",
+                  gap: 3,
+                }}
+              >
+                <FormControl>
+                  <FormLabel htmlFor="email" sx={{ marginTop: 0 }}>
+                    Email
+                  </FormLabel>
+                  <TextfieldWrapper
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="john@gmail.com"
+                    required
+                  />
+                </FormControl>
+                <FormControl>
+                  <FormLabel htmlFor="password" sx={{ marginTop: 0 }}>
+                    Password
+                  </FormLabel>
+                  <TextfieldWrapper
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="••••••"
+                    required
+                  />
+                </FormControl>
 
-                  <ButtonWrapper type="submit">Sign in</ButtonWrapper>
+                <ButtonWrapper type="submit">Sign in</ButtonWrapper>
 
-                  <Typography sx={{ textAlign: "center" }}>
-                    Don&apos;t have an account?{" "}
-                    <span>
-                      <Link style={{ color: "inherit" }} to={"/register"}>
-                        Register
-                      </Link>
-                    </span>
-                  </Typography>
-                </Box>
-              </Form>
-            )}
+                <Typography sx={{ textAlign: "center" }}>
+                  Don&apos;t have an account?{" "}
+                  <span>
+                    <Link style={{ color: "inherit" }} to={"/register"}>
+                      Register
+                    </Link>
+                  </span>
+                </Typography>
+              </Box>
+            </Form>
           </Formik>
         </Card>
       </SignInContainer>

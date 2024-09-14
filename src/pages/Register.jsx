@@ -70,8 +70,6 @@ const formValidation = Yup.object().shape({
 });
 
 const Register = () => {
-  const [success, setSuccess] = useState(false);
-
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
@@ -89,14 +87,14 @@ const Register = () => {
         }
       );
       console.log(JSON.stringify(response?.data));
-      setSuccess(true);
       navigate("/");
       toast.success(
         "You are registered. Please login with your new credentials."
       );
     } catch (err) {
       if (!err?.response) {
-        toast.error("No Server Response");
+        console.log(err);
+        toast.error(`${err}`);
       } else if (err.response?.status === 409) {
         toast.error("Username Taken");
       } else {

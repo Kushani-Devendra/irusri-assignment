@@ -1,7 +1,8 @@
 {
-  "login": [
+  "users": [
     {
       "id": "1",
+      "name": "Emily",
       "email": "emily@gmail.com",
       "password": "Emily@1",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
@@ -9,84 +10,15 @@
       "role": "user"
     },
     {
-      "id": "2c4a",
-      "email": "kushani2000@gmail.com",
-      "password": "gfd5435@"
+      "id": "dcfd",
+      "email": "kushanidevendra@gmail.com",
+      "password": "hgfh@hg"
     },
     {
-      "id": "9c41",
-      "email": "emily@gmail.com",
-      "password": "Emily@1"
-    },
-    {
-      "id": "fe3e",
-      "email": "emily@gmail.com",
-      "password": "Emily@1"
-    },
-    {
-      "id": "04b3",
-      "email": "emily@gmail.com",
-      "password": "Emily@1"
-    },
-    {
-      "id": "7843",
-      "email": "emily@gmail.com",
-      "password": "Emily@1"
-    },
-    {
-      "id": "a879",
-      "email": "emily@gmail.com",
-      "password": "Emily@1"
-    },
-    {
-      "id": "21e8",
-      "email": "emily@gmail.com",
-      "password": "Emily@1"
-    },
-    {
-      "id": "4cee",
-      "email": "emily@gmail.com",
-      "password": "Emily@1"
-    },
-    {
-      "id": "2b17",
-      "email": "emily@gmail.com",
-      "password": "Emily@1"
-    },
-    {
-      "id": "f2ff",
-      "email": "emily@gmail.com",
-      "password": "Emily@1"
-    },
-    {
-      "id": "5c02",
-      "email": "emily@gmail.com",
-      "password": "Emily@1"
-    },
-    {
-      "id": "0f19",
-      "email": "emily@gmail.com",
-      "password": "Emily@1"
-    }
-  ],
-  "users": [
-    {
-      "id": "1",
-      "email": "emily@gmail.com",
-      "password": "Emily@1",
-      "name": "Emily"
-    },
-    {
-      "id": "f712",
+      "id": "a4ba",
       "name": "Kushani",
-      "email": "kushani2000@gmail.com",
-      "password": "jhghg@46jvS"
-    },
-    {
-      "id": "529e",
-      "name": "Kushani",
-      "email": "kushani2000@gmail.com",
-      "password": "dgfdD#hjgj54"
+      "email": "kushani@gm.ci",
+      "password": "Dq2@4"
     }
   ]
 }
