@@ -49,8 +49,6 @@ const SignInContainer = styled(Stack)(({ theme }) => ({
   },
 }));
 
-const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
-
 const initialFormState = {
   email: "",
   password: "",
